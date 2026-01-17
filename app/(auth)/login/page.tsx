@@ -42,6 +42,14 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center p-4">
+      {loading && (
+        <div className="fixed inset-0 z-30 bg-white/70 backdrop-blur-sm flex items-center justify-center">
+          <div className="flex flex-col items-center gap-3 text-gray-700">
+            <div className="h-10 w-10 border-3 border-primary-600 border-t-transparent rounded-full animate-spin"></div>
+            <p className="text-sm font-medium">Signing you in...</p>
+          </div>
+        </div>
+      )}
       <div className="w-full max-w-md">
         {/* Logo */}
         <div className="text-center mb-8">
