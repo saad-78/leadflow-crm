@@ -22,21 +22,16 @@ export default function LoginPage() {
       const result = await signIn('credentials', {
         email,
         password,
-        redirect: false,
         callbackUrl: '/',
+        redirect: true,
       });
 
       if (result?.error) {
         setError('Invalid email or password');
-      } else if (result?.url) {
-        router.replace(result.url);
-      } else {
-        router.replace('/');
+        setLoading(false);
       }
     } catch (error) {
       setError('An error occurred. Please try again.');
-    } finally {
-      setLoading(false);
     }
   };
 
