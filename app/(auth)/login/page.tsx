@@ -23,12 +23,15 @@ export default function LoginPage() {
         email,
         password,
         redirect: false,
+        callbackUrl: '/',
       });
 
       if (result?.error) {
         setError('Invalid email or password');
+      } else if (result?.url) {
+        router.replace(result.url);
       } else {
-        router.push('/');
+        router.replace('/');
       }
     } catch (error) {
       setError('An error occurred. Please try again.');
